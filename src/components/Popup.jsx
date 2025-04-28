@@ -1,10 +1,11 @@
-const Popup = ({ title }) => {
+const Popup = ({ title, setIsPopupOpen }) => {
   const handleConfirm = () => {
     console.log('Confirm button clicked!')
   }
 
   const handleCancel = () => {
     console.log('Cancel button clicked!')
+    setIsPopupOpen(false)
   }
 
   return (

@@ -3,6 +3,7 @@ import './App.css'
 import Popup from './components/Popup'
 import Title from './components/Title'
 import Todo from './components/Todo'
+import Exercises from './components/Exercises'
 
 function App() {
   // Reactive variable declared with useState --- When a reactive variable is updated with reactive function --- the component re-renders
@@ -49,7 +50,18 @@ function App() {
         task="never you quit!"
         description="life will throw challenges at you, but do not quit"
       />
-      {isPopupOpen ? <Popup title="Are your sure?" /> : null}
+      {isPopupOpen ? (
+        <Popup
+          title="Are your sure?"
+          setIsPopupOpen={setIsPopupOpen}
+        />
+      ) : null}
+
+      {/* Exercise Tasks for Practice */}
+
+      <h2>Exercises: </h2>
+
+      <Exercises />
     </>
   )
 }
