@@ -4,16 +4,30 @@ import Title from './components/Title'
 import Todo from './components/Todo'
 
 function App() {
+  // A normal variable
+  let isPopupOpen = false
+
+  // trying to handle popup without useState
+
+  function togglePopup() {
+    isPopupOpen = !isPopupOpen
+    console.log(isPopupOpen)
+  }
   const handleChange = e => {
     console.log(e.target.value)
   }
   return (
     <>
       <Title />
-      <input
-        type="text"
-        onChange={handleChange}
-      />
+      <div>
+        <input
+          type="text"
+          onChange={handleChange}
+          style={{ padding: '0.25rem 1rem' }}
+        />
+        <button onClick={togglePopup}>add item</button>
+      </div>
+
       <Todo
         task="Master the game and fear will fade away"
         description="code every 3-4 hours"
@@ -30,8 +44,7 @@ function App() {
         task="never you quit!"
         description="life will throw challenges at you, but do not quit"
       />
-
-      {/* <Popup title="Are your sure?" /> */}
+      {isPopupOpen ? <Popup title="Are your sure?" /> : null}
     </>
   )
 }
