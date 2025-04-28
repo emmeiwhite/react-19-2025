@@ -28,6 +28,9 @@ button {
 .todo h2 {
   margin-bottom: 1rem;
 }
+.todo p {
+  margin-bottom: 1rem;
+}
 
 /* --- pop-up component --- */
 .popup {
