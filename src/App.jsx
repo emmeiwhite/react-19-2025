@@ -7,12 +7,12 @@ function App() {
   return (
     <>
       <Title />
-      <Todo />
-      <Todo />
-      <Todo />
-      <Todo />
+      <Todo task="Master the game and fear will fade away" />
+      <Todo task="Live and let live" />
+      <Todo task="life is a race" />
+      <Todo task="never you quit!" />
 
-      <Popup />
+      {/* <Popup /> */}
     </>
   )
 }

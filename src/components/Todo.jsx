@@ -1,7 +1,7 @@
-const Todo = () => {
+const Todo = ({ task }) => {
   return (
     <div className="todo">
-      <h2>Finish React Crash Course</h2>
+      <h2>{task}</h2>
       <button>Delete</button>
     </div>
   )
