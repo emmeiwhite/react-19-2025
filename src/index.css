@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+}
+
+.todo {
+  margin-bottom: 2rem;
+}
