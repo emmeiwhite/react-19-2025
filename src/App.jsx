@@ -4,9 +4,16 @@ import Title from './components/Title'
 import Todo from './components/Todo'
 
 function App() {
+  const handleChange = e => {
+    console.log(e.target.value)
+  }
   return (
     <>
       <Title />
+      <input
+        type="text"
+        onChange={handleChange}
+      />
       <Todo
         task="Master the game and fear will fade away"
         description="code every 3-4 hours"
@@ -24,7 +31,7 @@ function App() {
         description="life will throw challenges at you, but do not quit"
       />
 
-      {/* <Popup /> */}
+      {/* <Popup title="Are your sure?" /> */}
     </>
   )
 }
