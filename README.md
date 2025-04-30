@@ -1,12 +1,13 @@
-# React + Vite
+## React: JS Library to create User Interfaces in a declarative manner.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Feel it data and keep your Components ready (A function that returns JSX ) and React does the rest for you declaratively.
 
-Currently, two official plugins are available:
+## UI is the reflection of Data changing over time, This changing data is called the State.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## We make components dynamic with props. We pass props from Parent to child.
 
-## Expanding the ESLint configuration
+## Emitting Events:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Sometimes we require to pass props from child to parent in this case we can do two things
+- 1. Either lift the state up (from child to parent)
+- 2. Or we pass a function as prop from the parent to child and call this function reference from the child to update a state kept in the parent.

@@ -22,38 +22,51 @@ function App() {
   const handleChange = e => {
     console.log(e.target.value)
   }
+
+  /** --- passing function as props | Remember more and think about ideas --- */
+  function handlePopUp(isTrue) {
+    if (isTrue) {
+      setIsPopupOpen(isTrue)
+    }
+  }
   return (
     <>
       <Title />
+
       <div>
         <input
           type="text"
           onChange={handleChange}
           style={{ padding: '0.25rem 1rem' }}
         />
-        <button onClick={() => setIsPopupOpen(true)}>add item</button>
+        <button>add item</button>
       </div>
 
       <Todo
         task="Master the game and fear will fade away"
         description="code every 3-4 hours"
+        handlePopUp={handlePopUp}
       />
       <Todo
         task="Live and let live"
         description="set aside time for your well being"
+        handlePopUp={handlePopUp}
       />
       <Todo
         task="life is a race"
         description="Do not forget to sleep on time"
+        handlePopUp={handlePopUp}
       />
       <Todo
         task="never you quit!"
         description="life will throw challenges at you, but do not quit"
+        handlePopUp={handlePopUp}
       />
+
       {isPopupOpen ? (
         <Popup
           title="Are your sure?"
-          setIsPopupOpen={setIsPopupOpen}
+          handlePopUp={handlePopUp}
         />
       ) : null}
 
