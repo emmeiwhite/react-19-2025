@@ -24,11 +24,17 @@ function App() {
   }
 
   /** --- passing function as props | Remember more and think about ideas --- */
-  function handlePopUp(isTrue) {
-    if (isTrue) {
-      setIsPopupOpen(isTrue)
-    }
+  function openPopup() {
+    setIsPopupOpen(true)
   }
+
+  // Now, handling closing of the pop-up
+  function closePopup() {
+    setIsPopupOpen(false)
+  }
+
+  // 3. delete the element on confirm button click of the model
+  function deleteElement() {}
   return (
     <>
       <Title />
@@ -45,28 +51,28 @@ function App() {
       <Todo
         task="Master the game and fear will fade away"
         description="code every 3-4 hours"
-        handlePopUp={handlePopUp}
+        openPopup={openPopup}
       />
       <Todo
         task="Live and let live"
         description="set aside time for your well being"
-        handlePopUp={handlePopUp}
+        openPopup={openPopup}
       />
       <Todo
         task="life is a race"
         description="Do not forget to sleep on time"
-        handlePopUp={handlePopUp}
+        openPopup={openPopup}
       />
       <Todo
         task="never you quit!"
         description="life will throw challenges at you, but do not quit"
-        handlePopUp={handlePopUp}
+        openPopup={openPopup}
       />
 
       {isPopupOpen ? (
         <Popup
           title="Are your sure?"
-          handlePopUp={handlePopUp}
+          closePopup={closePopup}
         />
       ) : null}
 

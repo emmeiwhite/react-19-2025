@@ -1,11 +1,6 @@
-const Popup = ({ title, setIsPopupOpen }) => {
+const Popup = ({ title, closePopup }) => {
   const handleConfirm = () => {
     console.log('Confirm button clicked!')
-  }
-
-  const handleCancel = () => {
-    console.log('Cancel button clicked!')
-    setIsPopupOpen(false)
   }
 
   return (
@@ -20,7 +15,7 @@ const Popup = ({ title, setIsPopupOpen }) => {
           </button>
           <button
             className="popup__btn popup__btn--cancel"
-            onClick={handleCancel}>
+            onClick={closePopup}>
             Cancel
           </button>
         </div>
