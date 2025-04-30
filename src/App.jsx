@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Popup from './components/Popup'
 import Title from './components/Title'
 import Todo from './components/Todo'
 import Exercises from './components/Exercises'
+import todoData from './todoData'
 
 function App() {
   // Reactive variable declared with useState --- When a reactive variable is updated with reactive function --- the component re-renders
   const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [todos, setTodos] = useState([])
+  const [currentClickedId, setCurrentClickedId] = useState('')
   /* --
   // A normal variable
   let isPopupOpen = false
@@ -24,7 +28,8 @@ function App() {
   }
 
   /** --- passing function as props | Remember more and think about ideas --- */
-  function openPopup() {
+  function openPopup(id) {
+    setCurrentClickedId(id) // This state we'll use when the user clicks on confirm delete button
     setIsPopupOpen(true)
   }
 
@@ -34,7 +39,31 @@ function App() {
   }
 
   // 3. delete the element on confirm button click of the model
-  function deleteElement() {}
+  function deleteElement(id) {
+    console.log(id)
+
+    const filteredTodos = todos.filter(todo => {
+      return todo.id !== id
+    })
+
+    setTodos(filteredTodos)
+    setIsPopupOpen(false)
+    // setTodos(todo => {
+    //   return todo.item.id !== id
+    // })
+  }
+
+  useEffect(() => {
+    setLoading(true)
+    // Simulating API call delay
+    const timer = setTimeout(() => {
+      setTodos(todoData)
+      setLoading(false)
+    }, 500) // fake delay
+
+    return () => clearTimeout(timer) // cleanup
+  }, [])
+
   return (
     <>
       <Title />
@@ -48,7 +77,7 @@ function App() {
         <button>add item</button>
       </div>
 
-      <Todo
+      {/* <Todo
         task="Master the game and fear will fade away"
         description="code every 3-4 hours"
         openPopup={openPopup}
@@ -67,13 +96,25 @@ function App() {
         task="never you quit!"
         description="life will throw challenges at you, but do not quit"
         openPopup={openPopup}
-      />
+      /> */}
+
+      {/* Dynamic and Reusable Todos ELements now */}
+      {loading ? <p>LOADING ...</p> : ''}
+      {todos &&
+        todos.map(todo => (
+          <Todo
+            key={todo.id}
+            {...todo}
+            openPopup={openPopup}
+          />
+        ))}
 
       {isPopupOpen ? (
         <Popup
           title="Are your sure?"
           closePopup={closePopup}
           deleteElement={deleteElement}
+          currentClickedId={currentClickedId}
         />
       ) : null}
 

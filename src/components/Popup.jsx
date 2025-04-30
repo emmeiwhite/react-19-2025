@@ -1,4 +1,6 @@
-const Popup = ({ title, closePopup, deleteElement }) => {
+const Popup = ({ title, closePopup, deleteElement, currentClickedId }) => {
+  console.log(currentClickedId)
+
   return (
     <div>
       <div className="popup">
@@ -6,7 +8,7 @@ const Popup = ({ title, closePopup, deleteElement }) => {
         <div className="popup__btns">
           <button
             className="popup__btn"
-            onClick={deleteElement}>
+            onClick={() => deleteElement(currentClickedId)}>
             Confirm
           </button>
           <button
