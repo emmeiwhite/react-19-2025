@@ -73,6 +73,7 @@ function App() {
         <Popup
           title="Are your sure?"
           closePopup={closePopup}
+          deleteElement={deleteElement}
         />
       ) : null}
 

@@ -1,8 +1,4 @@
-const Popup = ({ title, closePopup }) => {
-  const handleConfirm = () => {
-    console.log('Confirm button clicked!')
-  }
-
+const Popup = ({ title, closePopup, deleteElement }) => {
   return (
     <div>
       <div className="popup">
@@ -10,7 +6,7 @@ const Popup = ({ title, closePopup }) => {
         <div className="popup__btns">
           <button
             className="popup__btn"
-            onClick={handleConfirm}>
+            onClick={deleteElement}>
             Confirm
           </button>
           <button
@@ -20,7 +16,10 @@ const Popup = ({ title, closePopup }) => {
           </button>
         </div>
       </div>
-      <div className="backdrop"></div>
+      {/* I learned why these backdrops are super helpful now while creating models, I used to keep everything within one element, but the power of this structure is clear now :) */}
+      <div
+        className="backdrop"
+        onClick={closePopup}></div>
     </div>
   )
 }
